@@ -25,6 +25,7 @@
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
   mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  document.getElementById('year').textContent = new Date().getFullYear();
 
   /**
    * Hide mobile nav on same-page/hash links
