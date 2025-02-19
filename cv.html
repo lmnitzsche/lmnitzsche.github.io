@@ -3,11 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicons -->
-    <link rel="icon" href="assets/img/lmn.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/img/lmn.png">
-
     <title>My Resume</title>
     <style>
         body {
@@ -21,7 +16,13 @@
             height: 86vh;
             border: 1px solid #ccc;
         }
-        .container {
+        @media (max-width: 768px) {
+            iframe {
+                width: 90%;
+                height: 75vh;
+            }
+        }
+        .button-container {
             margin-bottom: 10px;
         }
         button {
@@ -40,9 +41,12 @@
     </style>
 </head>
 <body>
-    <iframe src="assets/resume.pdf"></iframe>
-    <div class="container">
+    <iframe src="assets/Logan_Nitzsche.pdf"></iframe>
+    <div class="button-container">
+        <a href="assets/Logan_Nitzsche.pdf" download>
+            <button>Download Resume</button>
+        </a>
         <button onclick="history.back()">Back</button>
-    </div>    
+    </div>
 </body>
 </html>
