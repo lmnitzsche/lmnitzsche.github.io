@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+    <link rel="icon" href="assets/img/lmn.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/lmn.png">
+
+    <title>My Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: black;
+        }
+        iframe {
+            width: 40%;
+            height: 86vh;
+            border: 1px solid #ccc;
+        }
+        .container {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <iframe src="assets/resume.pdf"></iframe>
+    <div class="container">
+        <button onclick="history.back()">Back</button>
+    </div>    
+</body>
+</html>
