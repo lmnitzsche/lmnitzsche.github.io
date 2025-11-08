@@ -85,7 +85,6 @@ export default function Hero() {
           maxWidth: '750px',
           margin: '0 auto var(--space-3xl)'
         }}>
-          <br /><br />
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span> •{' '}
