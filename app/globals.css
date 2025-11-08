@@ -83,6 +83,33 @@ a, button, [role="button"] {
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
 }
 
+/* Hero animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.25; }
+}
+
+.hero-bg {
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.hero-symbols .symbol {
+  animation: float 6s ease-in-out infinite;
+  color: var(--text-secondary);
+}
+
+.hero-symbols .symbol:nth-child(1) { animation-delay: 0s; }
+.hero-symbols .symbol:nth-child(2) { animation-delay: 1s; }
+.hero-symbols .symbol:nth-child(3) { animation-delay: 2s; }
+.hero-symbols .symbol:nth-child(4) { animation-delay: 3s; }
+.hero-symbols .symbol:nth-child(5) { animation-delay: 1.5s; }
+.hero-symbols .symbol:nth-child(6) { animation-delay: 2.5s; }
+
 html {
   scroll-behavior: smooth;
 }

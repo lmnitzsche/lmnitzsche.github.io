@@ -17,14 +17,31 @@ export default function Hero() {
       justifyContent: 'center',
       padding: 'var(--space-2xl)',
       position: 'relative',
-      background: 'var(--bg)'
+      background: 'var(--bg)',
+      overflow: 'hidden'
     }}>
-      <div style={{
+      {/* Subtle animated gradient background */}
+      <div className="hero-bg" style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse at top, rgba(139, 92, 246, 0.05), transparent 50%)',
+        background: 'radial-gradient(ellipse at top left, rgba(139, 92, 246, 0.08), transparent 50%), radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.06), transparent 50%)',
         pointerEvents: 'none'
       }} />
+
+      {/* Floating code symbols */}
+      <div className="hero-symbols" style={{
+        position: 'absolute',
+        inset: 0,
+        pointerEvents: 'none',
+        opacity: 0.15
+      }}>
+        <div className="symbol" style={{ position: 'absolute', top: '15%', left: '10%', fontSize: '2rem' }}>{'{ }'}</div>
+        <div className="symbol" style={{ position: 'absolute', top: '25%', right: '15%', fontSize: '1.5rem' }}>{'</>'}</div>
+        <div className="symbol" style={{ position: 'absolute', bottom: '30%', left: '20%', fontSize: '1.8rem' }}>{'<>'}</div>
+        <div className="symbol" style={{ position: 'absolute', bottom: '20%', right: '10%', fontSize: '2rem' }}>{'[ ]'}</div>
+        <div className="symbol" style={{ position: 'absolute', top: '40%', right: '25%', fontSize: '1.5rem' }}>{'=>'}</div>
+        <div className="symbol" style={{ position: 'absolute', top: '60%', left: '15%', fontSize: '1.6rem' }}>{'( )'}</div>
+      </div>
 
       <div style={{
         maxWidth: '900px',
@@ -35,20 +52,6 @@ export default function Hero() {
         transform: mounted ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 0.6s, transform 0.6s'
       }}>
-        <div style={{
-          display: 'inline-block',
-          padding: '8px 20px',
-          background: 'rgba(139, 92, 246, 0.1)',
-          border: '1px solid rgba(139, 92, 246, 0.3)',
-          borderRadius: 'var(--radius-full)',
-          marginBottom: 'var(--space-2xl)',
-          fontSize: '0.875rem',
-          color: 'rgba(139, 92, 246, 0.9)',
-          fontWeight: 500
-        }}>
-          🎓 Graduating December 2025
-        </div>
-
         <h1 style={{
           fontSize: 'clamp(3.5rem, 10vw, 7rem)',
           fontWeight: 600,
@@ -82,11 +85,14 @@ export default function Hero() {
           maxWidth: '750px',
           margin: '0 auto var(--space-3xl)'
         }}>
-          M.S. Computer Science '25 • Building scalable, data-driven applications with{' '}
-          <span style={{ color: 'var(--text)' }}>React</span>,{' '}
-          <span style={{ color: 'var(--text)' }}>Node.js</span>,{' '}
-          <span style={{ color: 'var(--text)' }}>PostgreSQL</span>,{' '}
-          and <span style={{ color: 'var(--text)' }}>TypeScript</span>
+          M.S. Computer Science '25 • Specializing in scalable web applications and cloud architecture.
+          <br /><br />
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Docker</span>
         </p>
 
         <div style={{

@@ -31,6 +31,8 @@ export default function ResumePage() {
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg', category: 'DevOps' },
     { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', category: 'DevOps' },
     { name: 'Google Cloud', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg', category: 'DevOps' },
+    { name: 'Jira', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg', category: 'DevOps' },
+    { name: 'k6', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/k6/k6-original.svg', category: 'DevOps' },
     
     // ML/AI
     { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg', category: 'ML/AI' },
