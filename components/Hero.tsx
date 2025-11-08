@@ -85,14 +85,14 @@ export default function Hero() {
           maxWidth: '750px',
           margin: '0 auto var(--space-3xl)'
         }}>
-          M.S. Computer Science '25 • Specializing in scalable web applications and cloud architecture.
           <br /><br />
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>JavaScript</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Docker</span>
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>FastAPI</span>
         </p>
 
         <div style={{

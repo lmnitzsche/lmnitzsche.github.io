@@ -73,8 +73,7 @@ export default function AboutPage() {
               color: 'var(--text)',
               fontWeight: 500
             }}>
-              M.S. Computer Science candidate at SIUE, graduating December 2025. 
-              Full-stack engineer specializing in modern web development and scalable systems.
+              M.S. Computer Science candidate at SIUE, graduating December 2025.
             </p>
             
             <p>
@@ -82,13 +81,6 @@ export default function AboutPage() {
               the entire stack with <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span>, and <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span>. 
               My experience spans serverless architecture, REST API design, and cloud deployment, 
               with additional expertise in machine learning using Python.
-            </p>
-
-            <p>
-              I focus on writing clean, maintainable code that solves real problems. Whether it's 
-              optimizing database queries, building responsive UIs, or designing robust APIs, I bring 
-              a pragmatic approach to software engineering that balances technical excellence with 
-              practical delivery.
             </p>
           </div>
         </div>

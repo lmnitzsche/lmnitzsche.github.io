@@ -138,7 +138,7 @@ export default function ProjectsPage() {
               lineHeight: 1.6,
               marginBottom: 'var(--space-2xl)'
             }}>
-              {repos.length} open source projects focused on full-stack development, machine learning, and web applications
+              {repos.length} open source projects focused on full-stack development, machine learning, and end-to-end applications
             </p>
 
             {/* Language Filter */}
