@@ -17,24 +17,12 @@ export default function Hero() {
       justifyContent: 'center',
       padding: 'var(--space-2xl)',
       position: 'relative',
-      background: 'var(--bg)',
-      overflow: 'hidden'
+      background: 'var(--bg)'
     }}>
-      {/* Fantasy gradient background - mystical purple/blue */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse at top left, rgba(139, 92, 246, 0.1), transparent 50%), radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.08), transparent 50%)',
-        pointerEvents: 'none'
-      }} />
-
-      {/* Floating sparkles effect */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        backgroundImage: 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 1px, transparent 1px)',
-        backgroundSize: '50px 50px',
-        opacity: 0.15,
+        background: 'radial-gradient(ellipse at top, rgba(139, 92, 246, 0.05), transparent 50%)',
         pointerEvents: 'none'
       }} />
 
@@ -50,16 +38,15 @@ export default function Hero() {
         <div style={{
           display: 'inline-block',
           padding: '8px 20px',
-          background: 'rgba(139, 92, 246, 0.15)',
+          background: 'rgba(139, 92, 246, 0.1)',
           border: '1px solid rgba(139, 92, 246, 0.3)',
           borderRadius: 'var(--radius-full)',
           marginBottom: 'var(--space-2xl)',
           fontSize: '0.875rem',
           color: 'rgba(139, 92, 246, 0.9)',
-          fontWeight: 500,
-          boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
+          fontWeight: 500
         }}>
-          ✨ Graduating December 2025
+          🎓 Graduating December 2025
         </div>
 
         <h1 style={{

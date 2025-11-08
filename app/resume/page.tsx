@@ -1,6 +1,9 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function ResumePage() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const skills = [
     // Frontend
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', category: 'Frontend' },
@@ -353,11 +356,9 @@ export default function ResumePage() {
                   margin: 0,
                   fontSize: '0.9375rem'
                 }}>
-                  <li>CS50's Computer Science for AI (Harvard)</li>
+                  <li>Computer Science for AI Professional Certificate (Harvard)</li>
                   <li>Machine Learning Specialization (Stanford)</li>
-                  <li>Generative AI Leader (Google Cloud)</li>
-                  <li>Game Theory (Stanford)</li>
-                  <li>Computational Neuroscience (UW)</li>
+                  <li>Generative AI Leader Professional Certificate (Google Cloud)</li>
                 </ul>
               </div>
             </div>
@@ -366,40 +367,63 @@ export default function ResumePage() {
 
         {/* Skills */}
         <div>
-          <h2 style={{
-            fontSize: '1.75rem',
-            fontWeight: 600,
+          <div style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
             marginBottom: 'var(--space-xl)',
-            color: 'var(--text)'
+            flexWrap: 'wrap',
+            gap: 'var(--space-md)'
           }}>
-            Technical Skills
-          </h2>
-          
-          {/* Grouped by category */}
-          {['Frontend', 'Backend', 'DevOps', 'ML/AI'].map(category => {
-            const categorySkills = skills.filter(s => s.category === category);
-            if (categorySkills.length === 0) return null;
+            <h2 style={{
+              fontSize: '1.75rem',
+              fontWeight: 600,
+              color: 'var(--text)',
+              margin: 0
+            }}>
+              Technical Skills
+            </h2>
             
-            return (
-              <div key={category} style={{ marginBottom: 'var(--space-3xl)' }}>
-                <h3 style={{
-                  fontSize: '1.125rem',
-                  fontWeight: 600,
-                  color: 'var(--text-secondary)',
-                  marginBottom: 'var(--space-lg)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em'
-                }}>
-                  {category === 'Backend' ? 'Backend' : category}
-                </h3>
-                <div style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-                  gap: 'var(--space-lg)'
-                }}>
-                  {categorySkills.map(skill => (
-                    <div
-                      key={skill.name}
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              style={{
+                padding: '10px 16px',
+                background: 'var(--bg-secondary)',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--text)',
+                fontSize: '0.9375rem',
+                fontWeight: 500,
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--accent)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--border)';
+              }}
+            >
+              <option value="All">All Skills</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Backend">Backend & Database</option>
+              <option value="DevOps">DevOps</option>
+              <option value="ML/AI">ML/AI</option>
+            </select>
+          </div>
+          
+          {/* Display skills based on selection */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
+            gap: 'var(--space-lg)'
+          }}>
+            {skills
+              .filter(skill => selectedCategory === 'All' || skill.category === selectedCategory)
+              .map(skill => (
+                <div
+                  key={skill.name}
                       style={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -440,10 +464,7 @@ export default function ResumePage() {
                       </span>
                     </div>
                   ))}
-                </div>
-              </div>
-            );
-          })}
+          </div>
         </div>
       </div>
     </main>

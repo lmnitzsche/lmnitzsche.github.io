@@ -80,42 +80,74 @@ export default function ProjectsPage() {
       paddingBottom: 'var(--space-4xl)'
     }}>
       <div className="container">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr',
-          gap: 'var(--space-3xl)'
-        }}
-        className="projects-layout">
+        <div>
           {/* Main Content */}
           <div>
             <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              flexWrap: 'wrap',
+              gap: 'var(--space-lg)',
               marginBottom: 'var(--space-3xl)'
             }}>
               <h1 style={{
-                fontSize: 'clamp(3rem, 7vw, 5rem)',
+                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
                 fontWeight: 600,
-                marginBottom: 'var(--space-xl)',
                 color: 'var(--text)',
-                letterSpacing: '-0.03em',
-                lineHeight: 1
+                letterSpacing: '-0.02em'
               }}>
                 Projects
               </h1>
-              <p style={{
-                fontSize: '1.25rem',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.6,
-                marginBottom: 'var(--space-2xl)'
-              }}>
-                {repos.length} open source projects focused on full-stack development, machine learning, and web applications
-              </p>
+              
+              <a
+                href="https://github.com/lmnitzsche"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-sm)',
+                  padding: 'var(--space-md) var(--space-lg)',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-md)',
+                  color: 'var(--text-secondary)',
+                  textDecoration: 'none',
+                  fontSize: '0.9375rem',
+                  fontWeight: 500,
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--accent)';
+                  e.currentTarget.style.color = 'var(--accent)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border)';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
+                }}
+              >
+                <i className="bi bi-github"></i>
+                View on GitHub
+              </a>
+            </div>
 
-              {/* Language Filter */}
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 'var(--space-sm)'
-              }}>
+            <p style={{
+              fontSize: '1.25rem',
+              color: 'var(--text-secondary)',
+              lineHeight: 1.6,
+              marginBottom: 'var(--space-2xl)'
+            }}>
+              {repos.length} open source projects focused on full-stack development, machine learning, and web applications
+            </p>
+
+            {/* Language Filter */}
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 'var(--space-sm)',
+              marginBottom: 'var(--space-3xl)'
+            }}>
                 <button
                   onClick={() => setFilter('all')}
                   style={{
@@ -311,94 +343,7 @@ export default function ProjectsPage() {
             No projects found for this filter
           </div>
         )}
-          </div>
-
-          {/* Sidebar - Links */}
-          <aside style={{
-            display: 'none'
-          }} className="stats-sidebar">
-            <div style={{
-              position: 'sticky',
-              top: 'calc(var(--nav-height) + var(--space-2xl))',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'var(--space-md)'
-            }}>
-              <a
-                href="https://github.com/lmnitzsche"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'var(--space-sm)',
-                  padding: 'var(--space-lg)',
-                  background: 'var(--bg-secondary)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-md)',
-                  textDecoration: 'none',
-                  color: 'var(--text-secondary)',
-                  fontSize: '0.9375rem',
-                  fontWeight: 500,
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--accent)';
-                  e.currentTarget.style.color = 'var(--accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border)';
-                  e.currentTarget.style.color = 'var(--text-secondary)';
-                }}
-              >
-                <i className="bi bi-github" style={{ fontSize: '1.25rem' }}></i>
-                View on GitHub
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/logan-nitzsche/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'var(--space-sm)',
-                  padding: 'var(--space-lg)',
-                  background: 'var(--bg-secondary)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-md)',
-                  textDecoration: 'none',
-                  color: 'var(--text-secondary)',
-                  fontSize: '0.9375rem',
-                  fontWeight: 500,
-                  transition: 'all 0.2s'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--accent)';
-                  e.currentTarget.style.color = 'var(--accent)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--border)';
-                  e.currentTarget.style.color = 'var(--text-secondary)';
-                }}
-              >
-                <i className="bi bi-linkedin" style={{ fontSize: '1.25rem' }}></i>
-                View on LinkedIn
-              </a>
-            </div>
-          </aside>
         </div>
-
-        <style jsx>{`
-          @media (min-width: 1024px) {
-            .projects-layout {
-              grid-template-columns: 1fr 300px;
-            }
-            .stats-sidebar {
-              display: block !important;
-            }
-          }
-        `}</style>
       </div>
     </main>
   );
