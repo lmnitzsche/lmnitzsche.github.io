@@ -77,7 +77,7 @@ export default function Hero() {
           Full-Stack Software Engineer
         </p>
 
-        <p style={{
+                <p style={{
           fontSize: 'clamp(1.0625rem, 2.5vw, 1.25rem)',
           color: 'var(--text-secondary)',
           marginBottom: 'var(--space-xl)',
@@ -85,11 +85,13 @@ export default function Hero() {
           maxWidth: '750px',
           margin: '0 auto var(--space-3xl)'
         }}>
+          M.S. Computer Science '25 • Building production-ready applications with modern web technologies and scalable architecture.
+          <br /><br />
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>JavaScript</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
+          <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>FastAPI</span>
         </p>
