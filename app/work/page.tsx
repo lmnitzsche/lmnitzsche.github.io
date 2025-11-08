@@ -222,23 +222,6 @@ export default function ProjectsPage() {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              {/* Featured badge for top projects */}
-              {index < 3 && (
-                <div style={{
-                  position: 'absolute',
-                  top: 'var(--space-md)',
-                  right: 'var(--space-md)',
-                  padding: '4px 12px',
-                  background: 'var(--accent)',
-                  color: '#fff',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.75rem',
-                  fontWeight: 600
-                }}>
-                  ★ Featured
-                </div>
-              )}
-
               <div style={{
                 display: 'flex',
                 alignItems: 'flex-start',

@@ -58,7 +58,7 @@ export default function Hero() {
           marginBottom: 'var(--space-xl)',
           color: 'var(--text)',
           letterSpacing: '-0.04em',
-          lineHeight: 0.95,
+          lineHeight: 1.1,
           background: 'linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
