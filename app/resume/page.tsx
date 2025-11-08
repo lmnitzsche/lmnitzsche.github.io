@@ -17,7 +17,7 @@ export default function ResumePage() {
     { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', category: 'Frontend' },
     { name: 'Vite', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg', category: 'Frontend' },
     
-    // Backend & Database
+    // Backend
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', category: 'Backend' },
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', category: 'Backend' },
     { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg', category: 'Backend' },
@@ -409,7 +409,7 @@ export default function ResumePage() {
             >
               <option value="All">All Skills</option>
               <option value="Frontend">Frontend</option>
-              <option value="Backend">Backend & Database</option>
+              <option value="Backend">Backend</option>
               <option value="DevOps">DevOps</option>
               <option value="ML/AI">ML/AI</option>
             </select>

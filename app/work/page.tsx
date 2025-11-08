@@ -162,6 +162,18 @@ export default function ProjectsPage() {
                     cursor: 'pointer',
                     transition: 'all 0.2s'
                   }}
+                  onMouseEnter={(e) => {
+                    if (filter !== 'all') {
+                      e.currentTarget.style.borderColor = 'var(--accent)';
+                      e.currentTarget.style.color = 'var(--text)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (filter !== 'all') {
+                      e.currentTarget.style.borderColor = 'var(--border)';
+                      e.currentTarget.style.color = 'var(--text-secondary)';
+                    }
+                  }}
                 >
                   All ({repos.length})
                 </button>
@@ -180,6 +192,18 @@ export default function ProjectsPage() {
                       fontWeight: 500,
                       cursor: 'pointer',
                       transition: 'all 0.2s'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (filter !== lang) {
+                        e.currentTarget.style.borderColor = 'var(--accent)';
+                        e.currentTarget.style.color = 'var(--text)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (filter !== lang) {
+                        e.currentTarget.style.borderColor = 'var(--border)';
+                        e.currentTarget.style.color = 'var(--text-secondary)';
+                      }
                     }}
                   >
                     {lang} ({repos.filter(r => r.language === lang).length})
