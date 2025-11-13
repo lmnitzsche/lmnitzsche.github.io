@@ -1,5 +1,7 @@
 'use client';
 
+import GitHubContributions from '@/components/GitHubContributions';
+
 export default function AboutPage() {
   return (
     <main style={{
@@ -30,34 +32,73 @@ export default function AboutPage() {
               About
             </h1>
             
-            <a
-              href="mailto:lnitzsc@siue.edu"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 'var(--space-sm)',
-                padding: 'var(--space-md) var(--space-lg)',
-                background: 'var(--accent)',
-                border: '1px solid var(--accent)',
-                borderRadius: 'var(--radius-md)',
-                color: '#fff',
-                textDecoration: 'none',
-                fontSize: '0.9375rem',
-                fontWeight: 500,
-                transition: 'all 0.2s'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <i className="bi bi-envelope"></i>
-              Contact Me
-            </a>
+            <div style={{
+              display: 'flex',
+              gap: 'var(--space-md)',
+              flexWrap: 'wrap'
+            }}>
+              <a
+                href="https://www.linkedin.com/in/logan-nitzsche/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-sm)',
+                  padding: 'var(--space-md) var(--space-lg)',
+                  background: 'transparent',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-md)',
+                  color: 'var(--text)',
+                  textDecoration: 'none',
+                  fontSize: '0.9375rem',
+                  fontWeight: 500,
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--accent)';
+                  e.currentTarget.style.color = 'var(--accent)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--border)';
+                  e.currentTarget.style.color = 'var(--text)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <i className="bi bi-linkedin"></i>
+                LinkedIn
+              </a>
+              
+              <a
+                href="mailto:lnitzsc@siue.edu"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--space-sm)',
+                  padding: 'var(--space-md) var(--space-lg)',
+                  background: 'var(--accent)',
+                  border: '1px solid var(--accent)',
+                  borderRadius: 'var(--radius-md)',
+                  color: '#fff',
+                  textDecoration: 'none',
+                  fontSize: '0.9375rem',
+                  fontWeight: 500,
+                  transition: 'all 0.2s'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(59, 130, 246, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <i className="bi bi-envelope"></i>
+                Contact Me
+              </a>
+            </div>
           </div>
           
           <div style={{
@@ -82,6 +123,14 @@ export default function AboutPage() {
               My experience spans serverless architecture, REST API design, and cloud deployment, 
               with additional expertise in machine learning using Python.
             </p>
+          </div>
+
+          <div style={{
+            marginTop: 'var(--space-3xl)',
+            paddingTop: 'var(--space-2xl)',
+            borderTop: '1px solid var(--border)'
+          }}>
+            <GitHubContributions username="lmnitzsche" />
           </div>
         </div>
       </div>
