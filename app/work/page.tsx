@@ -4,6 +4,19 @@ import { useState, useEffect } from 'react';
 import { GitHubRepo } from '@/lib/github';
 import Link from 'next/link';
 
+function getPriorityTopics(topics: string[]): string[] {
+  const priorityTopics = ['nextjs', 'next', 'nodejs', 'node', 'react', 'postgresql', 'postegresql', 'postgres'];
+  const sortedTopics = [...topics].sort((a, b) => {
+    const aPriority = priorityTopics.indexOf(a.toLowerCase());
+    const bPriority = priorityTopics.indexOf(b.toLowerCase());
+    if (aPriority !== -1 && bPriority !== -1) return aPriority - bPriority;
+    if (aPriority !== -1) return -1;
+    if (bPriority !== -1) return 1;
+    return 0;
+  });
+  return sortedTopics.slice(0, 3);
+}
+
 export default function ProjectsPage() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -296,7 +309,18 @@ export default function ProjectsPage() {
                         width: '10px',
                         height: '10px',
                         borderRadius: '50%',
-                        background: 'var(--accent)'
+                        backgroundColor: 
+                          repo.language === 'JavaScript' ? '#f1e05a' :
+                          repo.language === 'TypeScript' ? '#3178c6' :
+                          repo.language === 'Python' ? '#3572A5' :
+                          repo.language === 'Java' ? '#b07219' :
+                          repo.language === 'C++' ? '#f34b7d' :
+                          repo.language === 'C' ? '#555555' :
+                          repo.language === 'HTML' ? '#e34c26' :
+                          repo.language === 'CSS' ? '#563d7c' :
+                          repo.language === 'Vue' ? '#41b883' :
+                          repo.language === 'PHP' ? '#4F5D95' :
+                          'var(--accent)'
                       }}></span>
                       {repo.language}
                     </span>
@@ -324,7 +348,7 @@ export default function ProjectsPage() {
                   gap: 'var(--space-xs)',
                   marginTop: 'var(--space-md)'
                 }}>
-                  {repo.topics.slice(0, 3).map(topic => (
+                  {getPriorityTopics(repo.topics).map(topic => (
                     <span key={topic} style={{
                       padding: '2px 8px',
                       background: 'var(--bg)',

@@ -3,6 +3,40 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { TechStackItem } from '@/components/TechStackItem';
 
+const skillIconMap: { [key: string]: string } = {
+  'react': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'nextjs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  'next': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  'vuejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+  'typescript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  'javascript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'nodejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'node': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+  'fastapi': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+  'django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
+  'flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
+  'postgresql': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'postegresql': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'postgres': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'supabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
+  'docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+  'tensorflow': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+  'pytorch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg',
+  'numpy': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg',
+  'html': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  'html5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+  'css': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+  'css3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+  'tailwindcss': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+  'tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+  'bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+  'vite': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+  'git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  'github': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+};
+
 export async function generateStaticParams() {
   const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'lmnitzsche';
   
@@ -26,6 +60,15 @@ export default async function ProjectDetail({ params }: { params: { slug: string
   } catch (error) {
     notFound();
   }
+
+  const techStack = repo.topics
+    ? repo.topics
+        .filter(topic => skillIconMap[topic.toLowerCase()])
+        .map(topic => ({
+          name: topic,
+          icon: skillIconMap[topic.toLowerCase()]
+        }))
+    : [];
 
   return (
     <main style={{
@@ -194,117 +237,58 @@ export default async function ProjectDetail({ params }: { params: { slug: string
                 color: 'var(--text-secondary)',
                 marginBottom: 'var(--space-xs)'
               }}>
-                License
+                Topics
               </div>
               <div style={{
-                fontSize: '1.125rem',
-                fontWeight: 600,
-                color: 'var(--text)'
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 'var(--space-xs)',
+                marginTop: 'var(--space-sm)'
               }}>
-                {repo.license?.name || 'None'}
+                {repo.topics && repo.topics.length > 0 ? (
+                  repo.topics.slice(0, 5).map(topic => (
+                    <span key={topic} style={{
+                      padding: '4px 10px',
+                      background: 'var(--bg)',
+                      border: '1px solid var(--border)',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.8125rem',
+                      color: 'var(--text-secondary)'
+                    }}>
+                      {topic}
+                    </span>
+                  ))
+                ) : (
+                  <span style={{
+                    fontSize: '1rem',
+                    color: 'var(--text-secondary)'
+                  }}>None</span>
+                )}
               </div>
             </div>
           </div>
 
-          {repo.topics && repo.topics.length > 0 && (() => {
-            // Map topics to skill icons
-            const skillIconMap: { [key: string]: string } = {
-              'react': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-              'nextjs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-              'next': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-              'vuejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-              'vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-              'typescript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-              'javascript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-              'nodejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-              'node': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-              'python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-              'fastapi': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
-              'django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
-              'flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
-              'postgresql': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-              'postgres': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-              'supabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
-              'docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-              'tensorflow': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
-              'pytorch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg',
-              'numpy': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg',
-              'html': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-              'html5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-              'css': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-              'css3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-              'tailwindcss': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-              'tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-              'bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-              'vite': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
-              'git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-              'github': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
-            };
-            
-            const techStack = repo.topics
-              .filter(topic => skillIconMap[topic.toLowerCase()])
-              .map(topic => ({
-                name: topic,
-                icon: skillIconMap[topic.toLowerCase()]
-              }));
-
-            return (
-              <>
-                {techStack.length > 0 && (
-                  <div style={{ marginBottom: 'var(--space-3xl)' }}>
-                    <h2 style={{
-                      fontSize: '1.5rem',
-                      fontWeight: 600,
-                      marginBottom: 'var(--space-lg)',
-                      color: 'var(--text)'
-                    }}>
-                      Tech Stack
-                    </h2>
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
-                      gap: 'var(--space-lg)'
-                    }}>
-                      {techStack.map(skill => (
-                        <TechStackItem key={skill.name} name={skill.name} icon={skill.icon} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                <div style={{
-                  marginBottom: 'var(--space-3xl)'
-                }}>
-                  <h2 style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 600,
-                    marginBottom: 'var(--space-lg)',
-                    color: 'var(--text)'
-                  }}>
-                    Topics
-                  </h2>
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 'var(--space-sm)'
+          {techStack.length > 0 && (
+            <div style={{ marginBottom: 'var(--space-3xl)' }}>
+              <h2 style={{
+                fontSize: '1.5rem',
+                fontWeight: 600,
+                marginBottom: 'var(--space-lg)',
+                color: 'var(--text)'
               }}>
-                {repo.topics.map(topic => (
-                  <span key={topic} style={{
-                    padding: '8px 16px',
-                    background: 'var(--bg-secondary)',
-                    border: '1px solid var(--border)',
-                    borderRadius: 'var(--radius-md)',
-                    fontSize: '0.9375rem',
-                    color: 'var(--text-secondary)'
-                  }}>
-                    {topic}
-                  </span>
+                Tech Stack
+              </h2>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
+                gap: 'var(--space-lg)'
+              }}>
+                {techStack.map(skill => (
+                  <TechStackItem key={skill.name} name={skill.name} icon={skill.icon} />
                 ))}
               </div>
             </div>
-              </>
-            );
-          })()}
+          )}
         </div>
       </div>
     </main>
