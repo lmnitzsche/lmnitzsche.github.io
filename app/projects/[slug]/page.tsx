@@ -1,6 +1,7 @@
 import { getGitHubRepo, getGitHubRepos } from '@/lib/github';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { TechStackItem } from '@/components/TechStackItem';
 
 export async function generateStaticParams() {
   const username = process.env.NEXT_PUBLIC_GITHUB_USERNAME || 'lmnitzsche';
@@ -160,8 +161,30 @@ export default async function ProjectDetail({ params }: { params: { slug: string
               <div style={{
                 fontSize: '1.125rem',
                 fontWeight: 600,
-                color: 'var(--text)'
+                color: 'var(--text)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 'var(--space-xs)'
               }}>
+                {repo.language && (
+                  <span style={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    backgroundColor: 
+                      repo.language === 'JavaScript' ? '#f1e05a' :
+                      repo.language === 'TypeScript' ? '#3178c6' :
+                      repo.language === 'Python' ? '#3572A5' :
+                      repo.language === 'Java' ? '#b07219' :
+                      repo.language === 'C++' ? '#f34b7d' :
+                      repo.language === 'C' ? '#555555' :
+                      repo.language === 'HTML' ? '#e34c26' :
+                      repo.language === 'CSS' ? '#563d7c' :
+                      repo.language === 'Vue' ? '#41b883' :
+                      repo.language === 'PHP' ? '#4F5D95' :
+                      'var(--text-secondary)'
+                  }} />
+                )}
                 {repo.language || 'N/A'}
               </div>
             </div>
@@ -183,18 +206,83 @@ export default async function ProjectDetail({ params }: { params: { slug: string
             </div>
           </div>
 
-          {repo.topics && repo.topics.length > 0 && (
-            <div style={{
-              marginBottom: 'var(--space-3xl)'
-            }}>
-              <h2 style={{
-                fontSize: '1.5rem',
-                fontWeight: 600,
-                marginBottom: 'var(--space-lg)',
-                color: 'var(--text)'
-              }}>
-                Topics
-              </h2>
+          {repo.topics && repo.topics.length > 0 && (() => {
+            // Map topics to skill icons
+            const skillIconMap: { [key: string]: string } = {
+              'react': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+              'nextjs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+              'next': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+              'vuejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+              'vue': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+              'typescript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+              'javascript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+              'nodejs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+              'node': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+              'python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+              'fastapi': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+              'django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
+              'flask': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
+              'postgresql': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+              'postgres': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+              'supabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
+              'docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+              'tensorflow': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+              'pytorch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg',
+              'numpy': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg',
+              'html': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+              'html5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+              'css': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+              'css3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+              'tailwindcss': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+              'tailwind': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+              'bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+              'vite': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+              'git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+              'github': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'
+            };
+            
+            const techStack = repo.topics
+              .filter(topic => skillIconMap[topic.toLowerCase()])
+              .map(topic => ({
+                name: topic,
+                icon: skillIconMap[topic.toLowerCase()]
+              }));
+
+            return (
+              <>
+                {techStack.length > 0 && (
+                  <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                    <h2 style={{
+                      fontSize: '1.5rem',
+                      fontWeight: 600,
+                      marginBottom: 'var(--space-lg)',
+                      color: 'var(--text)'
+                    }}>
+                      Tech Stack
+                    </h2>
+                    <div style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(100px, 1fr))',
+                      gap: 'var(--space-lg)'
+                    }}>
+                      {techStack.map(skill => (
+                        <TechStackItem key={skill.name} name={skill.name} icon={skill.icon} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <div style={{
+                  marginBottom: 'var(--space-3xl)'
+                }}>
+                  <h2 style={{
+                    fontSize: '1.5rem',
+                    fontWeight: 600,
+                    marginBottom: 'var(--space-lg)',
+                    color: 'var(--text)'
+                  }}>
+                    Topics
+                  </h2>
               <div style={{
                 display: 'flex',
                 flexWrap: 'wrap',
@@ -214,7 +302,9 @@ export default async function ProjectDetail({ params }: { params: { slug: string
                 ))}
               </div>
             </div>
-          )}
+              </>
+            );
+          })()}
         </div>
       </div>
     </main>
