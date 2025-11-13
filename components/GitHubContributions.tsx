@@ -184,7 +184,7 @@ export default function GitHubContributions({ username }: { username: string }) 
               color: 'var(--accent)',
               marginBottom: 'var(--space-xs)'
             }}>
-              {stats.totalCommits.toLocaleString()}+
+              {stats.totalCommits.toLocaleString()} 
             </div>
             <div style={{
               fontSize: '0.875rem',
