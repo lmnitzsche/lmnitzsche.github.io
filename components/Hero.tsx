@@ -119,7 +119,7 @@ export default function Hero() {
             <i className="bi bi-linkedin"></i>
           </a>
           <a
-            href="mailto:logan@example.com"
+            href="mailto:logannitzsche8@gmail.com"
             className="hero-social-link"
           >
             <i className="bi bi-envelope"></i>

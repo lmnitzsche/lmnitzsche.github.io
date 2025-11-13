@@ -71,7 +71,7 @@ export default function AboutPage() {
               </a>
               
               <a
-                href="mailto:lnitzsc@siue.edu"
+                href="mailto:logannitzsche8@gmail.com"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
