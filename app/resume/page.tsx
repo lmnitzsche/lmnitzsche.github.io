@@ -187,7 +187,7 @@ export default function ResumePage() {
                   paddingLeft: '1.25rem',
                   margin: 0
                 }}>
-                  <li>Taught CS 234 (Database and Web System Development), CS 590 (Deep Learning), and CS 456 (Analysis of Algorithms), mentoring 100+ students in full-stack development and Python ML workflows.</li>
+                  <li>Taught CS 234 (Database and Web System Development), CS 590 (Deep Learning), and CS 456 (Analysis of Algorithms), mentoring 100+ students in full-stack development and Python ML workflows</li>
                 </ul>
               </div>
 

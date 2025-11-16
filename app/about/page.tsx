@@ -49,7 +49,7 @@ export default function AboutPage() {
                   background: 'transparent',
                   border: '1px solid var(--border)',
                   borderRadius: 'var(--radius-md)',
-                  color: 'var(--text)',
+                  color: 'var(--text-secondary)',
                   textDecoration: 'none',
                   fontSize: '0.9375rem',
                   fontWeight: 500,
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = 'var(--border)';
-                  e.currentTarget.style.color = 'var(--text)';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
