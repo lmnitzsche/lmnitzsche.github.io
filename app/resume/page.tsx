@@ -187,9 +187,7 @@ export default function ResumePage() {
                   paddingLeft: '1.25rem',
                   margin: 0
                 }}>
-                  <li>Teaching Deep Learning, Database & Web System Development, and Analysis of Algorithms</li>
-                  <li>Mentoring students through complex CS concepts and full-stack projects</li>
-                  <li>Guest lecturing on advanced topics in machine learning and web development</li>
+                  <li>Taught CS 234 (Database and Web System Development), CS 590 (Deep Learning), and CS 456 (Analysis of Algorithms), mentoring 100+ students in full-stack development and Python ML workflows.</li>
                 </ul>
               </div>
 
@@ -221,9 +219,9 @@ export default function ResumePage() {
                   paddingLeft: '1.25rem',
                   margin: 0
                 }}>
-                  <li>Established 5th MIC in the U.S., collaborating with Harvard, MIT, Brown, and Boston College</li>
-                  <li>Led AI initiatives using TensorFlow, PyTorch, scikit-learn, and Apache Spark MLlib</li>
-                  <li>Supervised projects in computer vision, NLP, and predictive analytics</li>
+                  <li>Established SIUE’s student-led Machine Intelligence Community (MIC) in collaboration with Harvard MIC, recognized as the fifth MIC in the U.S., alongside MIT, Brown, Harvard, and Boston College</li>
+                  <li>Mentored students on full ML workflows: data preprocessing, model development, and deployment using Ten- sorFlow, PyTorch, scikit-learn, SQL</li>
+                  <li>Oversaw projects in computer vision, NLP, and predictive analytics, delivering cloud-based, production-ready solutions</li>
                 </ul>
               </div>
 
@@ -255,9 +253,7 @@ export default function ResumePage() {
                   paddingLeft: '1.25rem',
                   margin: 0
                 }}>
-                  <li>Developed agricultural simulation platform with 102+ Illinois county datasets</li>
-                  <li>Built CI/CD pipeline with GitHub Actions for automated deployment</li>
-                  <li>Recognized by Chancellor for comprehensive educational software development</li>
+                  <li>Developed and deployed an agricultural simulation platform in TypeScript with 102+ Illinois county datasets and economic analysis algorithms, recognized by SIUE Chancellor</li>
                 </ul>
               </div>
             </div>
