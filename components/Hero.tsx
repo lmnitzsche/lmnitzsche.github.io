@@ -87,7 +87,7 @@ export default function Hero() {
         }}>
           Incoming Software Engineer at MetLife • M.S. Computer Science '25
           <br /><br />
-          Turning ideas into working systems. Architecting full-stack applications and ML solutions.
+          Worked across ML, product, and full stack, turning ideas into working systems.
           <br /><br />
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
           <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
