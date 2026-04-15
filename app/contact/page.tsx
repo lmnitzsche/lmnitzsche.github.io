@@ -2,7 +2,7 @@
 
 import GitHubContributions from '@/components/GitHubContributions';
 
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <main style={{
       minHeight: '100vh',
@@ -20,7 +20,7 @@ export default function AboutPage() {
             alignItems: 'flex-start',
             flexWrap: 'wrap',
             gap: 'var(--space-lg)',
-            marginBottom: 'var(--space-2xl)'
+            marginBottom: 'var(--space-3xl)'
           }}>
             <h1 style={{
               fontSize: 'clamp(2.5rem, 6vw, 4rem)',
@@ -29,7 +29,7 @@ export default function AboutPage() {
               letterSpacing: '-0.02em',
               margin: 0
             }}>
-              About
+              Contact
             </h1>
             
             <div style={{
@@ -67,7 +67,7 @@ export default function AboutPage() {
                 }}
               >
                 <i className="bi bi-linkedin"></i>
-                LinkedIn
+                Connect on LinkedIn
               </a>
               
               <a
@@ -96,37 +96,9 @@ export default function AboutPage() {
                 }}
               >
                 <i className="bi bi-envelope"></i>
-                Contact Me
+                Email me
               </a>
             </div>
-          </div>
-          
-          <div style={{
-            fontSize: '1.125rem',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.8,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--space-xl)'
-          }}>
-            <p style={{
-              fontSize: '1.25rem',
-              color: 'var(--text)',
-              fontWeight: 500
-            }}>
-              Incoming Software Engineer at MetLife. M.S. Computer Science '25.
-            </p>
-            
-            <p>
-              Most of my ideas don't stay ideas for long. I architect and build complete solutions across the full stack, 
-              working with <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span>, and <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span>. 
-              My experience spans product management, machine learning systems, full-stack development, and scalable cloud architecture. 
-              I've worked across ML, product, and full stack, turning ideas into working systems.
-            </p>
-            
-            <p>
-              One thing I love as much as a good idea? A great conversation. Let's chat!
-            </p>
           </div>
 
           <div style={{

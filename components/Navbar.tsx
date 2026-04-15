@@ -103,23 +103,23 @@ export default function Navbar() {
             Projects
           </Link>
           <Link 
-            href="/about" 
+            href="/contact" 
             style={{ 
-              color: isActive('/about') ? 'var(--accent)' : 'var(--text-secondary)',
-              fontWeight: isActive('/about') ? 600 : 500,
+              color: isActive('/contact') ? 'var(--accent)' : 'var(--text-secondary)',
+              fontWeight: isActive('/contact') ? 600 : 500,
               fontSize: '0.9375rem',
               transition: 'color 0.2s',
               textDecoration: 'none',
               cursor: 'pointer'
             }}
             onMouseEnter={(e) => {
-              if (!isActive('/about')) e.currentTarget.style.color = 'var(--text)';
+              if (!isActive('/contact')) e.currentTarget.style.color = 'var(--text)';
             }}
             onMouseLeave={(e) => {
-              if (!isActive('/about')) e.currentTarget.style.color = 'var(--text-secondary)';
+              if (!isActive('/contact')) e.currentTarget.style.color = 'var(--text-secondary)';
             }}
           >
-            About
+            Contact
           </Link>
           <button
             onClick={toggleTheme}
