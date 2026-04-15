@@ -77,10 +77,10 @@ a, button, [role="button"] {
 }
 
 .hero-social-link:hover {
-  border-color: rgba(139, 92, 246, 0.5);
-  color: rgba(139, 92, 246, 0.9);
+  border-color: var(--accent);
+  color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
 /* Hero animations */
