@@ -114,14 +114,18 @@ export default function AboutPage() {
               color: 'var(--text)',
               fontWeight: 500
             }}>
-              M.S. Computer Science candidate at SIUE, graduating December 2025.
+              Incoming Software Engineer at MetLife. M.S. Computer Science '25.
             </p>
             
             <p>
-              I architect and build complete solutions from concept to deployment, working across 
-              the entire stack with <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span>, and <span style={{ color: 'var(--text)', fontWeight: 500 }}>PostgreSQL</span>. 
-              My experience spans serverless architecture, REST API design, and cloud deployment, 
-              with additional expertise in machine learning using Python.
+              Most of my ideas don't stay ideas for long. I architect and build complete solutions across the full stack, 
+              working with <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span>, <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span>, and <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span>. 
+              My experience spans product management, machine learning systems, full-stack development, and scalable cloud architecture. 
+              I've worked across ML, product, and full stack, turning ideas into working systems.
+            </p>
+            
+            <p>
+              One thing I love as much as a good idea? A great conversation. Let's chat!
             </p>
           </div>
 

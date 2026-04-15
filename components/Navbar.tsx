@@ -121,25 +121,6 @@ export default function Navbar() {
           >
             About
           </Link>
-          <Link 
-            href="/resume" 
-            style={{ 
-              color: isActive('/resume') ? 'var(--accent)' : 'var(--text-secondary)',
-              fontWeight: isActive('/resume') ? 600 : 500,
-              fontSize: '0.9375rem',
-              transition: 'color 0.2s',
-              textDecoration: 'none',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              if (!isActive('/resume')) e.currentTarget.style.color = 'var(--text)';
-            }}
-            onMouseLeave={(e) => {
-              if (!isActive('/resume')) e.currentTarget.style.color = 'var(--text-secondary)';
-            }}
-          >
-            Resume
-          </Link>
           <button
             onClick={toggleTheme}
             style={{
