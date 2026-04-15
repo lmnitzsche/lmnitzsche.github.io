@@ -74,7 +74,7 @@ export default function Hero() {
           fontWeight: 500,
           letterSpacing: '-0.01em'
         }}>
-          Software Engineer, Full Stack & ML
+          Incoming Software Engineer at MetLife
         </p>
 
                 <p style={{
@@ -85,16 +85,7 @@ export default function Hero() {
           maxWidth: '750px',
           margin: '0 auto var(--space-3xl)'
         }}>
-          Incoming Software Engineer at MetLife • M.S. Computer Science '25
-          <br /><br />
           Worked across ML, product, and full stack, turning ideas into working systems.
-          <br /><br />
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>React</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>TypeScript</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Node.js</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>Python</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>FastAPI</span> •{' '}
-          <span style={{ color: 'var(--text)', fontWeight: 500 }}>ML</span>
         </p>
 
         <div style={{
